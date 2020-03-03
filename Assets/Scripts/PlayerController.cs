@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private float angle;
 
     public GameObject weapon;
+    public GameObject[] weapons;
     public WeaponController weaponController;
 
     Rigidbody2D _body;
@@ -76,8 +77,8 @@ public class PlayerController : MonoBehaviour
         movementSpeed = Mathf.Clamp(movementDirection.magnitude, 0.0f, 1.0f);
         movementDirection.Normalize();
         direction = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
-        angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        weapon.transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+        angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
+        weapon.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         if (Input.GetButtonDown("Fire1"))
         {
@@ -86,6 +87,23 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonUp("Fire1"))
         {
             weaponController.isFiring = false; 
+        }
+        if (Input.GetButtonDown("Switch"))
+        {
+            if (weapons[0].activeSelf == true)
+            {
+                weapons[1].SetActive(true);
+                weapon = weapons[1];
+                weaponController = weapon.GetComponent<WeaponController>();
+                weapons[0].SetActive(false);
+            }
+            else
+            {
+                weapons[0].SetActive(true);
+                weapon = weapons[0];
+                weaponController = weapon.GetComponent<WeaponController>();
+                weapons[1].SetActive(false);
+            }
         }
     }
 
