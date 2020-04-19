@@ -59,13 +59,13 @@ public class WeaponController : MonoBehaviour
     void spreadShot()
     {
         GameObject projectile = null;
-        projectileShot(projectile, -10).GetComponent<BulletController>().Fire();
+        projectileShot(projectile, -15).GetComponent<BulletController>().Fire();
         
         GameObject projectile1 = null;
         projectileShot(projectile1, 0).GetComponent<BulletController>().Fire();
         
         GameObject projectile2 = null;
-        projectileShot(projectile2, 10).GetComponent<BulletController>().Fire();
+        projectileShot(projectile2, 15).GetComponent<BulletController>().Fire();
     }
 
     private GameObject projectileShot(GameObject projectile, float fireAngle)
