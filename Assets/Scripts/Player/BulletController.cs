@@ -8,7 +8,7 @@ public class BulletController : MonoBehaviour
     public float lifeSpan = 3;
     void Update()
     {
-
+        
     }
 
     public void Fire()
@@ -24,17 +24,5 @@ public class BulletController : MonoBehaviour
     {
         yield return new WaitForSeconds(lifeSpan);
         gameObject.SetActive(false);
-    }
-
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        //if (col.gameObject.tag == "Bullet")
-        //{
-        //    Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-        //}
-        if (col.gameObject.tag == "Wall")
-        {
-            gameObject.SetActive(false);
-        }
     }
 }

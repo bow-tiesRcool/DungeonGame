@@ -68,7 +68,7 @@ public class Spawner : MonoBehaviour
             string enemyPrefabName = enemyPrefabNames[Random.Range(0, enemyPrefabNames.Length)];
 
             GameObject enemy = Spawner.Spawn(enemyPrefabName);
-
+            
             if (spawnLocation == 0)
             {
                 pos = Camera.main.ViewportToWorldPoint(new Vector3(1.1f, Random.Range(.1f, .9f), -Camera.main.transform.position.z));
