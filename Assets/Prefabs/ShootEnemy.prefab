@@ -127,10 +127,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFiring: 0
-  enemy: 0
+  enemy: 1
   player: {fileID: 0}
   attackType: SingleShot
-  projectileType: SingleBullet
+  projectileType: EnemySBullet
   timeBetweenShots: 0.5
   firePoint: {fileID: 2027121465047211284}
   direction: {x: 0, y: 0}
@@ -226,8 +226,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -7616357609731271642, guid: bf0a40763a0f08e4cada4a817e8920e8,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 031bcc429c2598e43a0cf041c15dc205, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -272,18 +271,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.021303177, y: -0.107979536}
+  m_Offset: {x: -0.016094416, y: 0.004213214}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.6, y: 0.8}
+    oldSize: {x: 0.53, y: 0.65}
     newSize: {x: 60, y: 80}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.41537297, y: 0.60321933}
+  m_Size: {x: 0.49016815, y: 0.63458514}
   m_EdgeRadius: 0
 --- !u!114 &7243709081327499032
 MonoBehaviour:

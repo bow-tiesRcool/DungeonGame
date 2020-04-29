@@ -292,6 +292,11 @@ PrefabInstance:
       propertyPath: m_PlaneDistance
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 223679987317242166, guid: a8659c24e647d5f44930003e33273db9,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 224771533484634746, guid: a8659c24e647d5f44930003e33273db9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -580,6 +585,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2027121463776369434, guid: 42146127236edba4381095edd795ddc0,
+        type: 3}
+      propertyPath: enemy
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2027121463934593838, guid: 42146127236edba4381095edd795ddc0,
         type: 3}
       propertyPath: m_Name
