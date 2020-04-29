@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -9,6 +10,10 @@ public class PlayerController : MonoBehaviour
 
     public Vector2 movementDirection;
     private float movementSpeed;
+
+    public int life = 5;
+    private bool canBeHit = true;
+
     public float playerSpeed;
     public Vector2 direction;
     private float angle;
@@ -16,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public GameObject weapon;
     public GameObject[] weapons;
     public WeaponController weaponController;
+    private GameManager gameManager;
 
     Rigidbody2D _body;
     public Rigidbody2D body
@@ -32,6 +38,7 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
+        gameManager = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GameManager>();
         if (player == null)
         {
             player = this;
@@ -86,7 +93,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetButtonUp("Fire1"))
         {
-            weaponController.isFiring = false; 
+            weaponController.isFiring = false;
         }
         if (Input.GetButtonDown("Switch"))
         {
@@ -121,5 +128,28 @@ public class PlayerController : MonoBehaviour
         Vector3 u = Camera.main.WorldToViewportPoint(transform.position + Vector3.down * xOffset);
         u.y = Mathf.Clamp01(u.y);
         transform.position = Camera.main.ViewportToWorldPoint(u) - Vector3.down * xOffset;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //if (collision.gameObject.tag == "MeleeEnemy")
+        //{
+        //    Physics2D.IgnoreCollision(collision.collider, this.GetComponent<Collider2D>());
+        //}
+        if (collision.gameObject.tag == "ShootEnemy" || collision.gameObject.tag == "MeleeEnemy" || collision.gameObject.tag == "EnemyBullet")
+        {
+            if (canBeHit)
+            {
+                canBeHit = false;
+                gameManager.LooseLife();
+                StartCoroutine("HitCooldown");
+            }
+        }
+    }
+
+    IEnumerator HitCooldown()
+    {
+        yield return new WaitForSeconds(3f);
+        canBeHit = true;
     }
 }

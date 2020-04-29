@@ -5,6 +5,8 @@ using UnityEngine;
 public class WeaponController : MonoBehaviour
 {
     public bool isFiring;
+    public bool enemy;
+    public Transform player;
 
     public string attackType;
     public string projectileType;
@@ -15,6 +17,12 @@ public class WeaponController : MonoBehaviour
     public Transform firePoint;
     public Vector2 direction;
     public float angle;
+
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +32,14 @@ public class WeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        direction = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+        if (!enemy)
+        {
+            direction = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+        }
+        else
+        {
+            direction =  player.position - transform.position;
+        }
         angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
         if (isFiring)
         {
@@ -50,10 +65,10 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    void singleShot()
+    public void singleShot()
     {
-        GameObject projectile = null;
-        projectileShot(projectile, 0).GetComponent<BulletController>().Fire();
+            GameObject projectile = null;
+            projectileShot(projectile, 0).GetComponent<BulletController>().Fire();
     }
 
     void spreadShot()

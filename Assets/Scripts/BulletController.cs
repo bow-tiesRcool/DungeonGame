@@ -6,6 +6,7 @@ public class BulletController : MonoBehaviour
 {
     public float speed;
     public float lifeSpan = 3;
+    public bool playerBullet;
     void Update()
     {
 
@@ -35,6 +36,17 @@ public class BulletController : MonoBehaviour
         if (col.gameObject.tag == "Wall")
         {
             gameObject.SetActive(false);
+        }
+        if(col.gameObject.tag == "Player" && !playerBullet)
+        {
+            gameObject.SetActive(false);
+        }
+        if (col.gameObject.tag == "ShootEnemy" || col.gameObject.tag == "MeleeEnemy")
+        {
+            if (playerBullet)
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 }

@@ -16,9 +16,15 @@ public class GameManager : MonoBehaviour
     //public Text highScoreUI;
     //public Text gameOverUI;
     //public Text MultiplierUI;
+    public Text Lives;
+    public Transform quitScreen;
+    public Transform gameOverScreen;
 
     public int score = 0;
     public float playerSpeed = 3;
+    private int playerLife;
+    private int currentLife;
+    public PlayerController player;
 
 
     void Awake()
@@ -41,10 +47,19 @@ public class GameManager : MonoBehaviour
         //scoreUI.text = "Score: " + score;
         //instance.sound.clip = instance.music;
         //instance.sound.Play();
+        playerLife = player.life;
+        currentLife = playerLife;
+        instance.Lives.text = "Lives: " + currentLife;
+        Time.timeScale = 1;
     }
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Time.timeScale = 0;
+            quitScreen.gameObject.SetActive(true);
+        }
         //HighScore();
     }
 
@@ -87,11 +102,38 @@ public class GameManager : MonoBehaviour
         //}
     }
 
-    public static void GameOver()
+    public void LooseLife()
     {
-        //instance.gameOverUI.text = "Game Over";
-        //instance.gameOverUI.gameObject.SetActive(true);
-        //HighScoreSaver();
+        currentLife--;
+        if (currentLife >= 1)
+        {
+            Lives.text = "Lives: " + currentLife;
+        }
+        else
+        {
+            Time.timeScale = 0;
+            gameOverScreen.gameObject.SetActive(true);
+        }
+    }
+
+    public void GameOver()
+    {
+        AudioManager.PlayEffect("Death", 1, 1);
+        Time.timeScale = 0;
+        HighScoreSaver();
+        gameOverScreen.gameObject.SetActive(true);
+        //   Return to the main menu is handled by the SceneController;
+    }
+
+    public void ResetGame()
+    {
+        currentLife = playerLife;
+    }
+
+    public void ExitQuitScreen()
+    {
+        Time.timeScale = 1;
+        quitScreen.gameObject.SetActive(false);
     }
 
     IEnumerator MultiplierUITimer()

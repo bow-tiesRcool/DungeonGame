@@ -42,20 +42,11 @@ Tilemap:
   m_GameObject: {fileID: 6469009040361760245}
   m_Enabled: 1
   m_Tiles:
-  - first: {x: 7, y: 4, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 3
-      m_TileSpriteIndex: 3
-      m_TileMatrixIndex: 1
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      m_AllTileFlags: 1073741825
   - first: {x: -11, y: 7, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 2
-      m_TileSpriteIndex: 2
+      m_TileSpriteIndex: 3
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -208,7 +199,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 2
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -221,20 +212,19 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: bfebada54ceb8674b89f2aca7a8bddb8, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: d84f259307153ed468c79596d0651236, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 5d1e3b37ecf3f3d4f8f3ca42eb8c93e8, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileSpriteArray:
-  - m_RefCount: 1
-    m_Data: {fileID: -7063403058836991687, guid: 36c56302dea551c40b99fa1db40d32fc,
-      type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 16
     m_Data: {fileID: -7626348988197198589, guid: 36c56302dea551c40b99fa1db40d32fc,
       type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -906021573413111463, guid: 36c56302dea551c40b99fa1db40d32fc,
+    m_Data: {fileID: -7063403058836991687, guid: 36c56302dea551c40b99fa1db40d32fc,
       type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 9058822660989661298, guid: 36c56302dea551c40b99fa1db40d32fc,
+    m_Data: {fileID: -906021573413111463, guid: 36c56302dea551c40b99fa1db40d32fc,
       type: 3}
   m_TileMatrixArray:
   - m_RefCount: 18
@@ -255,26 +245,26 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 1
+  - m_RefCount: 0
     m_Data:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
+      e00: NaN
+      e01: 1.8797941e-10
+      e02: 1.879632e-10
+      e03: NaN
+      e10: NaN
+      e11: 3.57e-43
+      e12: 3.57e-43
+      e13: NaN
+      e20: -161308930
+      e21: 1.8797097e-10
+      e22: 0.00044783842
+      e23: 1.8797097e-10
+      e30: 9.23e-43
+      e31: 3.57e-43
+      e32: 4.5916e-41
+      e33: 3.57e-43
   m_TileColorArray:
-  - m_RefCount: 19
+  - m_RefCount: 18
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -4506,7 +4496,7 @@ GameObject:
   - component: {fileID: 6469009040718768037}
   m_Layer: 0
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

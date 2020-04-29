@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Bullet
   - Wall
+  - MeleeEnemy
+  - ShootEnemy
+  - Obstical
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
@@ -16,7 +20,7 @@ TagManager:
   - 
   - 
   - Wall
-  - 
+  - Enemy
   - 
   - 
   - 
